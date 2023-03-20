@@ -4,12 +4,6 @@
 # include <iostream>
 
 class Contact {
-	std::string firstName;
-	std::string lastName;
-	std::string nickname;
-	std::string phoneNumber;
-	std::string darkestSecret;
-
 public:
 	void SetFirstName();
 	void SetLastName();
@@ -23,6 +17,12 @@ public:
 	std::string GetDarkestSecret();
 	Contact();
 	~Contact();
+private:
+	std::string firstName;
+	std::string lastName;
+	std::string nickname;
+	std::string phoneNumber;
+	std::string darkestSecret;
 };
 
 #endif

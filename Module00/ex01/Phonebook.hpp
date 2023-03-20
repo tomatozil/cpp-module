@@ -5,9 +5,6 @@
 # include <iomanip>
 
 class Phonebook {
-	Contact contact[8];
-	int index;
-
 public:
 	void AddContact();
 	void PrintPhonebook();
@@ -15,6 +12,10 @@ public:
 	std::string CutTen(std::string);
 	Phonebook();
 	~Phonebook();
+
+private:
+	Contact contact[8];
+	int index;
 };
 
 #endif

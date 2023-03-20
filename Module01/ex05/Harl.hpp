@@ -4,7 +4,6 @@
 # include <iostream>
 
 class Harl {
-
 public:
 	Harl();
 	~Harl();

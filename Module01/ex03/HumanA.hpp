@@ -4,7 +4,6 @@
 # include "Weapon.hpp"
 
 class HumanA {
-
 public:
 	void attack();
 	HumanA(std::string name, Weapon& weapon);

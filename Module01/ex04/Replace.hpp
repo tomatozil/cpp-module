@@ -5,7 +5,6 @@
 # include <fstream>
 
 class Replace {
-
 public:
 	bool execute();
 	Replace(std::string file, std::string before, std::string after);

@@ -4,7 +4,6 @@
 # include <iostream>
 
 class Weapon {
-
 public:
 	void setType(std::string type);
 	const std::string& getType();

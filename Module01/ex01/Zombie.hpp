@@ -4,7 +4,6 @@
 # include <iostream>
 
 class Zombie {
-
 public:
 	void announce();
 	static Zombie *zombieHorde(int N, std::string name);

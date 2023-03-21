@@ -8,7 +8,7 @@ void HumanB::setWeapon(Weapon &weapon) {
 	weapon_ = &weapon;
 }
 
-HumanB::HumanB(std::string name) : name_(name), weapon_(nullptr) {}
+HumanB::HumanB(std::string name) : name_(name), weapon_(0) {}
 
 HumanB::~HumanB() {}
 

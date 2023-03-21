@@ -17,6 +17,7 @@ public:
 	std::string GetDarkestSecret();
 	Contact();
 	~Contact();
+
 private:
 	std::string firstName;
 	std::string lastName;

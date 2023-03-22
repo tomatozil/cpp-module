@@ -1,6 +1,10 @@
 #include "HumanB.hpp"
 
 void HumanB::attack() {
+	if (!weapon_) {
+		std::cout << name_ << " don't have any weapon" << std::endl;
+		return ;
+	}
 	std::cout << name_ << " attacks with his " << weapon_->getType() << std::endl;
 }
 

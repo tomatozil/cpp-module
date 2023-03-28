@@ -31,11 +31,6 @@ protected:
 	unsigned int _hitPoints; //when hitPoint or energyPoint is 0, cant do anything
 	unsigned int _energyPoints; //lose 1 when attack or repair
 	unsigned int _attackDamage;
-
-private:
-	static const unsigned int _defaultHP = 100;
-	static const unsigned int _defaultEP = 100;
-	static const unsigned int _defaultAD = 30;
 };
 
 #endif

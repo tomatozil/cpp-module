@@ -5,7 +5,7 @@ void ClapTrap::setName(std::string name) {
 }
 
 void ClapTrap::setHitPoint(unsigned int point) {
-	if (point > _defaultHP) {
+	if (point > 10) {
 		std::cout << "WARNING: Set fail. Is bigger than limit point" << std::endl;
 		return ;
 	}
@@ -13,7 +13,7 @@ void ClapTrap::setHitPoint(unsigned int point) {
 }
 
 void ClapTrap::setEnergyPoint(unsigned int point) {
-	if (point > _defaultEP) {
+	if (point > 10) {
 		std::cout << "WARNING: Set fail. Is bigger than limit point" << std::endl;
 		return ;
 	}
@@ -21,7 +21,7 @@ void ClapTrap::setEnergyPoint(unsigned int point) {
 }
 
 void ClapTrap::setAttackDamage(unsigned int damage) {
-	if (damage > _defaultAD) {
+	if (damage > 5) {
 		std::cout << "WARNING: Set fail. Is bigger than limit point" << std::endl;
 		return ;
 	}
@@ -83,11 +83,11 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	std::cout << _name << " is repaired with " << amount << " points! yayyyy☀︎☀︎︎" << std::endl;
 }
 
-ClapTrap::ClapTrap() : _name("none"), _hitPoints(_defaultHP), _energyPoints(_defaultEP), _attackDamage(_defaultAD) {
+ClapTrap::ClapTrap() : _name("none"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap " << "default constructor has been called." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(_defaultHP), _energyPoints(_defaultEP), _attackDamage(_defaultAD) {
+ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
 	std::cout << "ClapTrap " << _name << " constructor with own name has been called." << std::endl;
 }
 

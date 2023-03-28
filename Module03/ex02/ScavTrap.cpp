@@ -14,6 +14,9 @@ void ScavTrap::attack(const std::string &target) {
 }
 
 ScavTrap::ScavTrap() : ClapTrap("SC4V-TP") {
+//	this->setHitPoint(100);
+//	this->setEnergyPoint(50);
+//	this->setAttackDamage(20);
 	_hitPoints = 100;
 	_energyPoints = 50;
 	_attackDamage = 20;
@@ -30,6 +33,15 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 ScavTrap::ScavTrap(const ScavTrap &origin) : ClapTrap(origin) {
 	std::cout << "ScavTrap " << _name << " copy constructor has been called." << std::endl;
 	*this = origin;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap &origin) {
+	_name = origin._name;
+	_hitPoints = origin._hitPoints;
+	_energyPoints = origin._energyPoints;
+	_attackDamage = origin._attackDamage;
+	std::cout << _name << " copy assignment operator has been called" << std::endl;
+	return (*this);
 }
 
 ScavTrap::~ScavTrap() {

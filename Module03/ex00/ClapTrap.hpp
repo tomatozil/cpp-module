@@ -25,15 +25,12 @@ public:
 	ClapTrap(const ClapTrap& origin);
 	ClapTrap& operator=(const ClapTrap& origin);
 	~ClapTrap();
+
 private:
 	std::string _name;
 	unsigned int _hitPoints; //when hitPoint or energyPoint is 0, cant do anything
 	unsigned int _energyPoints; //lose 1 when attack or repair
 	unsigned int _attackDamage;
-
-	static const unsigned int _defaultHP = 10;
-	static const unsigned int _defaultEP = 10;
-	static const unsigned int _defaultAD = 2;
 };
 
 #endif

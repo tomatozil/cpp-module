@@ -11,6 +11,7 @@ public:
 	ScavTrap();
 	ScavTrap(std::string name);
 	ScavTrap(const ScavTrap& origin);
+	ScavTrap& operator=(const ScavTrap& origin);
 	~ScavTrap();
 };
 

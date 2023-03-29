@@ -5,7 +5,8 @@ NAME = a.out
 SRC = main.cpp \
 	ClapTrap.cpp \
 	ScavTrap.cpp \
-	FragTrap.cpp
+	FragTrap.cpp \
+	DiamondTrap.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 INCLUDES = -I./

@@ -24,11 +24,15 @@ FragTrap::FragTrap(const FragTrap &origin) {
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &origin) {
+	std::cout << "FragTrap " << _name << " copy assignment operator has been called" << std::endl;
+
+	if (this == &origin)
+		return (*this);
+
 	_name = origin._name;
 	_hitPoints = origin._hitPoints;
 	_energyPoints = origin._energyPoints;
 	_attackDamage = origin._attackDamage;
-	std::cout << _name << " copy assignment operator has been called" << std::endl;
 	return (*this);
 }
 

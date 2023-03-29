@@ -13,7 +13,7 @@ void ClapTrap::setHitPoint(unsigned int point) {
 }
 
 void ClapTrap::setEnergyPoint(unsigned int point) {
-	if (point > 50) {
+	if (point > 100) {
 		std::cout << "WARNING: Set fail. Is bigger than limit point" << std::endl;
 		return ;
 	}
@@ -21,7 +21,7 @@ void ClapTrap::setEnergyPoint(unsigned int point) {
 }
 
 void ClapTrap::setAttackDamage(unsigned int damage) {
-	if (damage > 20) {
+	if (damage > 30) {
 		std::cout << "WARNING: Set fail. Is bigger than limit point" << std::endl;
 		return ;
 	}
@@ -83,8 +83,8 @@ void ClapTrap::beRepaired(unsigned int amount) {
 	std::cout << _name << " is repaired with " << amount << " points! yayyyy☀︎☀︎︎" << std::endl;
 }
 
-ClapTrap::ClapTrap() : _name("none"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
-	std::cout << "ClapTrap " << "default constructor has been called." << std::endl;
+ClapTrap::ClapTrap() : _name("CL4P-TP"), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
+	std::cout << "ClapTrap " << _name << " default constructor has been called." << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0) {
@@ -97,11 +97,15 @@ ClapTrap::ClapTrap(const ClapTrap &origin) : _name(origin._name), _hitPoints(ori
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &origin) {
+	std::cout << "ClapTrap " << _name << " copy assignment operator has been called" << std::endl;
+
+	if (this == &origin)
+		return (*this);
+
 	_name = origin._name;
 	_hitPoints = origin._hitPoints;
 	_energyPoints = origin._energyPoints;
 	_attackDamage = origin._attackDamage;
-	std::cout << _name << " copy assignment operator has been called" << std::endl;
 	return (*this);
 }
 

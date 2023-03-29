@@ -1,27 +1,17 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-	FragTrap jiyun("jiyun");
-	FragTrap hakim("hakim");
-	FragTrap jujeon;
+	DiamondTrap dia1("dia1");
+	ScavTrap scav1("scav1");
+	FragTrap frag1("frag1");
 
-	jujeon = jiyun;
-	jujeon.setName("jujeon");
+	std::cout << "==========================" << std::endl;
+	dia1.attack(scav1.getName());
+	scav1.attack(frag1.getName());
+	frag1.attack(dia1.getName());
 
-	jiyun.attack(hakim.getName());
-	hakim.takeDamage(jiyun.getAttackDamage());
-	jiyun.attack(jujeon.getName());
-	jujeon.takeDamage(jiyun.getAttackDamage());
-
-	jiyun.printStatus();
-	hakim.printStatus();
-	jujeon.printStatus();
-
-	hakim.beRepaired(20);
-	jujeon.beRepaired(19);
-	hakim.printStatus();
-	jujeon.printStatus();
-
-	jiyun.highFivesGuys();
-	hakim.highFivesGuys();
+	std::cout << "==========================" << std::endl;
+	dia1.whoAmI();
+	scav1.guardGate();
+	frag1.highFivesGuys();
 }

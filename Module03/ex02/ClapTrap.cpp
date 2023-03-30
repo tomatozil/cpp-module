@@ -93,7 +93,6 @@ ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(10), _energyPoint
 
 ClapTrap::ClapTrap(const ClapTrap &origin) : _name(origin._name), _hitPoints(origin._hitPoints), _energyPoints(origin._energyPoints), _attackDamage(origin._attackDamage) {
 	std::cout << "ClapTrap " << _name << " copy constructor has been called." << std::endl;
-	*this = origin;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &origin) {

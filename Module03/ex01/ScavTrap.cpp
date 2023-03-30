@@ -32,7 +32,6 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
 
 ScavTrap::ScavTrap(const ScavTrap &origin) : ClapTrap(origin) {
 	std::cout << "ScavTrap " << _name << " copy constructor has been called." << std::endl;
-	*this = origin;
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &origin) {

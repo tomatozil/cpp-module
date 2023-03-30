@@ -24,8 +24,9 @@ int main() {
 	hakim.printStatus();
 	jujeon.printStatus();
 
-	hakim.setHitPoint(10);
+	std::cout << "-------------------------" << std::endl;
 	jiyun.setEnergyPoint(10);
+	hakim.setHitPoint(10);
 	jiyun.printStatus();
 	hakim.printStatus();
 	for(int i = 0; i < 5; i++) {

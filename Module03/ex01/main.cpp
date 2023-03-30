@@ -17,13 +17,14 @@ int main() {
 	hakim.printStatus();
 	jujeon.printStatus();
 
-	hakim.beRepaired(3);
-	jujeon.beRepaired(2);
+	hakim.beRepaired(10);
+	jujeon.beRepaired(8);
 	hakim.printStatus();
 	jujeon.printStatus();
 
-	hakim.setHitPoint(10);
-	jiyun.setEnergyPoint(10);
+	std::cout << "-------------------------" << std::endl;
+	jiyun.setEnergyPoint(100);
+	hakim.setHitPoint(100);
 	jiyun.printStatus();
 	hakim.printStatus();
 

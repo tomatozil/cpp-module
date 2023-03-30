@@ -18,9 +18,8 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name) {
 	std::cout << "FragTrap " << _name << " constructor with own name has been called." << std::endl;
 }
 
-FragTrap::FragTrap(const FragTrap &origin) {
+FragTrap::FragTrap(const FragTrap &origin)  : ClapTrap(origin) {
 	std::cout << "FragTrap " << _name << " copy constructor has been called." << std::endl;
-	*this = origin;
 }
 
 FragTrap& FragTrap::operator=(const FragTrap &origin) {

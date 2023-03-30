@@ -17,10 +17,16 @@ int main() {
 	hakim.printStatus();
 	jujeon.printStatus();
 
-	hakim.beRepaired(20);
-	jujeon.beRepaired(19);
+	hakim.beRepaired(10);
+	jujeon.beRepaired(8);
 	hakim.printStatus();
 	jujeon.printStatus();
+
+	std::cout << "-------------------------" << std::endl;
+	jiyun.setEnergyPoint(100);
+	hakim.setHitPoint(100);
+	jiyun.printStatus();
+	hakim.printStatus();
 
 	jiyun.highFivesGuys();
 	hakim.highFivesGuys();

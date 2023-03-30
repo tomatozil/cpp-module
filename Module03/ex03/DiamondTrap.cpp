@@ -24,9 +24,8 @@ DiamondTrap::DiamondTrap(std::string name) : _name(name) {
 	std::cout << "DiamondTrap " << _name << " constructor with own name has been called." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(const DiamondTrap& origin) : ClapTrap(origin), ScavTrap(origin), FragTrap(origin) {
+DiamondTrap::DiamondTrap(const DiamondTrap& origin)  : ClapTrap(origin), ScavTrap(origin), FragTrap(origin) {
 	std::cout << "DiamondTrap " << _name << " copy constructor has been called." << std::endl;
-//	*this = origin;
 }
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& origin) {

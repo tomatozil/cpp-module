@@ -4,6 +4,15 @@ void Dog::makeSound() const {
 	std::cout << "BARK BARK BARK BARK BARK BARK BARK BARK BARK BARK" << std::endl;
 }
 
+void Dog::setBrain(std::string content) {
+	for(int i = 0; i < I; i++)
+		brain->setContent(content);
+}
+
+const Brain& Dog::getBrain() {
+	return (*brain);
+}
+
 Dog::Dog()
 	: Animal("Dog"), brain(new Brain()) {
 	std::cout << type << " default constructor has been called." << std::endl;

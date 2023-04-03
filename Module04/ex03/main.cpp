@@ -25,5 +25,6 @@ int main() {
 	delete me;
 	delete src;
 
+//	system("leaks a.out");
 	return 0;
 }

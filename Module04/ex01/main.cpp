@@ -15,16 +15,16 @@ int main() {
 	}
 
 	Dog originDog;
-	originDog.brain->setContent("none");
+	originDog.setBrain("none");
 	Cat originCat;
-	originCat.brain->setContent("none");
+	originCat.setBrain("onoe");
 
 	Dog copyDog(originDog);
 	for(int i = 0; i < 5; i++)
-		std::cout << copyDog.brain->ideas[i] << std::endl;
+		std::cout << copyDog.getBrain().ideas[i] << std::endl;
 	Cat copyCat(originCat);
 	for(int i = 0; i < 5; i++)
-		std::cout << copyCat.brain->ideas[i] << std::endl;
+		std::cout << copyCat.getBrain().ideas[i] << std::endl;
 
 //	system("leaks a.out");
 	return 0;

@@ -48,4 +48,8 @@ int main() {
 	std::cout << ((ShrubberyCreationForm *)shrubbery)->getTarget() << std::endl;
 	std::cout << ((RobotomyRequestForm *)robotomy)->getTarget() << std::endl;
 	std::cout << ((PresidentialPardonForm *)pardon)->getTarget() << std::endl;
+
+	delete shrubbery;
+	delete robotomy;
+	delete pardon;
 }

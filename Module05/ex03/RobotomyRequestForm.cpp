@@ -5,6 +5,7 @@ void RobotomyRequestForm::execute(Bureaucra const & executor) const throw(NotSig
 		throw NotSignedYetException();
 	if (executor.getGrade() > this->getExeGrade())
 		throw GradeTooLowException();
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 	std::cout << "drilling .. drilling .. drilling" << std::endl;
 	srand(time(0));
 	if (rand() % 2 == 1)

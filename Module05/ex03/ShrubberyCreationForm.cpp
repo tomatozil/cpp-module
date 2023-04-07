@@ -5,6 +5,7 @@ void ShrubberyCreationForm::execute(Bureaucra const & executor) const throw(NotS
 		throw NotSignedYetException();
 	if (executor.getGrade() > this->getExeGrade())
 		throw GradeTooLowException();
+	std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 	std::ofstream tree(target + "_shrubbery");
 	if (tree.is_open()) {
 		tree <<  "       _-_\n"

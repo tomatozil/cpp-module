@@ -10,12 +10,21 @@ int main() {
 	bureaucra2.signForm(form2);
 	std::cout << form2 << std::endl;
 
-	Form form3;
 	try {
-		form3 = Form("Anyone's", 151, 11);
+		Form form3("Anyone's", 151, 11);
 
-	} catch (std::exception& e) {
+	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
-	std::cout << form3 << std::endl;
+
+	std::cout << "------------------------------------" << std::endl;
+
+	Form form4;
+	try {
+		form4 = Form("Anyone's", 149, 11);
+
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << form4 << std::endl;
 }

@@ -26,7 +26,7 @@ void AForm::beSigned(Bureaucra &bureaucra) throw(GradeTooLowException) {
 AForm::AForm() : name("default"), isSigned(false), signGrade(150), exeGrade(150) {}
 
 AForm::AForm(const std::string &name, const unsigned int signGrade, const unsigned int exeGrade)
-	:name(name), signGrade(signGrade), exeGrade(exeGrade) {
+	:name(name), isSigned(false), signGrade(signGrade), exeGrade(exeGrade) {
 	isSigned = false;
 	if (signGrade < 1 || exeGrade < 1)
 		throw AForm::InitialGradeTooHighException();

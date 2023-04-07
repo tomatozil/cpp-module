@@ -31,7 +31,7 @@ void Bureaucra::signForm(Form& form) {
 	}
 }
 
-Bureaucra::Bureaucra() : name("Default"), grade(150) {}
+Bureaucra::Bureaucra() {}
 
 Bureaucra::Bureaucra(const std::string& name, unsigned int grade) : name(name), grade(grade) {
 	if (grade < 1)

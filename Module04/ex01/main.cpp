@@ -26,6 +26,6 @@ int main() {
 	for(int i = 0; i < 5; i++)
 		std::cout << copyCat.getBrain().ideas[i] << std::endl;
 
-//	system("leaks a.out");
+	system("leaks a.out");
 	return 0;
 }

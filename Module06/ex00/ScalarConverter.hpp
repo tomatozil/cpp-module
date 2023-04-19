@@ -2,8 +2,9 @@
 #define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <stdlib.h>
 #include <sstream>
+#include <iomanip>
+#include <cfloat>
 
 class ScalarConverter {
 private:
@@ -19,14 +20,14 @@ public:
 	static DataType isDouble(const std::string& literal);
 
 	static void convertChar(char c);
-	static void convertInt(int i);
-	static void convertFloat(float f);
-	static void convertDouble(double d);
+//	static void convertInt(int i);
+//	static void convertFloat(float f);
+//	static void convertDouble(double d);
 
 private:
 	ScalarConverter();
-	ScalarConverter(const ScalarConverter& origin);
-	ScalarConverter& operator=(const ScalarConverter& converter);
+//	ScalarConverter(const ScalarConverter& origin);
+//	ScalarConverter& operator=(const ScalarConverter& converter);
 	~ScalarConverter();
 };
 

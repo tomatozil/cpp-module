@@ -1,8 +1,28 @@
 #include "ScalarConverter.hpp"
 
-int main() {
-	ScalarConverter::convertChar('c');
+int main(int ac, char **av) {
+	if (ac != 2) {
+		std::cout << "Enter 2 arguments(./[EXECUTE FILE] literal)" << std::endl;
+		return (0);
+	}
+	ScalarConverter::convert(av[1]);
 }
+
+//int main() {
+//	ScalarConverter::convertChar('c');
+//	std::string str = "42.0f";
+//	double d = strtod(str.c_str(), NULL);
+//	size_t dotPos = str.find('.');
+//	size_t fractionLen = str.length() - dotPos - 1;
+//	std::cout << fractionLen << std::endl;
+//	std::cout << d << std::endl;
+//	std::cout << static_cast<int>(d) << std::endl;
+//	std::cout << static_cast<float>(d) << std::endl;
+//	if (fractionLen > 6)
+//		std::cout << std::fixed << std::setprecision(6) << static_cast<float>(d) << std::endl;
+//	else
+//		std::cout << std::fixed << std::setprecision(fractionLen) << static_cast<float>(d) << std::endl;
+//}
 
 //int main() {
 //	std::string s = "42.0f";

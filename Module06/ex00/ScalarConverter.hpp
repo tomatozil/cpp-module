@@ -20,14 +20,15 @@ public:
 	static DataType isDouble(const std::string& literal);
 
 	static void convertChar(char c);
-//	static void convertInt(int i);
-//	static void convertFloat(float f);
-//	static void convertDouble(double d);
+	static void convertInt(int i);
+	static void convertFloat(float f);
+	static void convertDouble(double d);
+	static void convertNone();
 
 private:
 	ScalarConverter();
-//	ScalarConverter(const ScalarConverter& origin);
-//	ScalarConverter& operator=(const ScalarConverter& converter);
+	ScalarConverter(const ScalarConverter& origin);
+	ScalarConverter& operator=(const ScalarConverter& converter);
 	~ScalarConverter();
 };
 

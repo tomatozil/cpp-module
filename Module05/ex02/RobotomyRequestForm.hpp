@@ -7,7 +7,7 @@
 
 class RobotomyRequestForm : public AForm {
 public:
-	virtual void execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException);
+	virtual void execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException);
 
 	RobotomyRequestForm(const std::string& target);
 	RobotomyRequestForm(const RobotomyRequestForm& origin);

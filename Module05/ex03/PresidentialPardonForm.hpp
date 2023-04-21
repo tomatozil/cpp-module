@@ -6,7 +6,7 @@
 
 class PresidentialPardonForm : public AForm {
 public:
-	virtual void execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException);
+	virtual void execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException);
 	std::string getTarget() const;
 
 	PresidentialPardonForm(const std::string& target);

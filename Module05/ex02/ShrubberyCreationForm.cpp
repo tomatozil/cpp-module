@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-void ShrubberyCreationForm::execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException) {
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException) {
 	if (this->getSignedStatus() == false)
 		throw NotSignedYetException();
 	if (executor.getGrade() > this->getExeGrade())

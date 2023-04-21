@@ -1,12 +1,12 @@
-#ifndef BUREAUCRA_HPP
-#define BUREAUCRA_HPP
+#ifndef BUREAUCRAT_HPP
+#define BUREAUCRAT_HPP
 
 #include <iostream>
 #include "Form.hpp"
 
 class Form;
 
-class Bureaucra {
+class Bureaucrat {
 public:
 	std::string getName() const;
 	unsigned int getGrade() const;
@@ -14,11 +14,11 @@ public:
 	void decrementGrade() throw(GradeTooLowException);
 	void signForm(Form& form);
 
-	Bureaucra();
-	Bureaucra(const std::string& name, unsigned int grade);
-	Bureaucra(const Bureaucra& origin);
-	Bureaucra& operator=(const Bureaucra& bureaucra);
-	~Bureaucra();
+	Bureaucrat();
+	Bureaucrat(const std::string& name, unsigned int grade);
+	Bureaucrat(const Bureaucrat& origin);
+	Bureaucrat& operator=(const Bureaucrat& bureaucrat);
+	~Bureaucrat();
 
 	class GradeTooHighException : public std::exception {
 		const char * what() const throw();
@@ -41,6 +41,6 @@ private:
 	unsigned int grade;
 };
 
-std::ostream& operator<<(std::ostream& out, const Bureaucra& bureaucra);
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& bureaucrat);
 
 #endif

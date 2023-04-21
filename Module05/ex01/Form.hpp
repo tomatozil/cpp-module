@@ -2,9 +2,9 @@
 #define FORM_HPP
 
 #include <iostream>
-#include "Bureaucra.hpp"
+#include "Bureaucrat.hpp"
 
-class Bureaucra;
+class Bureaucrat;
 
 class Form {
 public:
@@ -13,7 +13,7 @@ public:
 	unsigned int getSignGrade() const;
 	unsigned int getExeGrade() const;
 
-	void beSigned(Bureaucra& bureaucra) throw(GradeTooLowException); //changed the status to signed
+	void beSigned(Bureaucrat& bureaucrat) throw(GradeTooLowException); //changed the status to signed
 
 	Form();
 	Form(const std::string& name, const unsigned int signGrade, const unsigned int exeGrade);

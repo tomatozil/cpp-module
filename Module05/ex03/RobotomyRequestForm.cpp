@@ -1,6 +1,6 @@
 #include "RobotomyRequestForm.hpp"
 
-void RobotomyRequestForm::execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException) {
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException) {
 	if (this->getSignedStatus() == false)
 		throw NotSignedYetException();
 	if (executor.getGrade() > this->getExeGrade())

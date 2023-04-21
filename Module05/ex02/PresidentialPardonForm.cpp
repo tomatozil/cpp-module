@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-void PresidentialPardonForm::execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException) {
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException) {
 	if (this->getSignedStatus() == false)
 		throw NotSignedYetException();
 	if (executor.getGrade() > this->getExeGrade())

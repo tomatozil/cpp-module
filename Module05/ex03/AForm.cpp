@@ -16,10 +16,10 @@ unsigned int AForm::getExeGrade() const {
 	return (exeGrade);
 }
 
-void AForm::beSigned(Bureaucra &bureaucra) throw(GradeTooLowException) {
-	if (bureaucra.getGrade() >this->getSignGrade() )
+void AForm::beSigned(Bureaucrat &bureaucrat) throw(GradeTooLowException) {
+	if (bureaucrat.getGrade() >this->getSignGrade() )
 		throw AForm::GradeTooLowException();
-	std::cout << bureaucra.getName() << " just signed." << std::endl;
+	std::cout << bureaucrat.getName() << " just signed." << std::endl;
 	this->isSigned = true;
 }
 

@@ -7,7 +7,7 @@
 
 class ShrubberyCreationForm : public AForm {
 public:
-	virtual void execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException);
+	virtual void execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException);
 
 	ShrubberyCreationForm(const std::string& target);
 	ShrubberyCreationForm(const ShrubberyCreationForm& origin);

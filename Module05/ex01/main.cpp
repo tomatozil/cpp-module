@@ -1,13 +1,13 @@
-#include "Bureaucra.hpp"
+#include "Bureaucrat.hpp"
 
 int main() {
-	Bureaucra bureaucra1; // grade = 150으로 자동 설정
-	Bureaucra bureaucra2("jiyun", 2);
+	Bureaucrat bureaucrat1; // grade = 150으로 자동 설정
+	Bureaucrat bureaucrat2("jiyun", 2);
 	Form form1;
 	Form form2("jiyun's form", 10, 10);
 
 	std::cout << form2 << std::endl;
-	bureaucra2.signForm(form2);
+	bureaucrat2.signForm(form2);
 	std::cout << form2 << std::endl;
 
 	try {

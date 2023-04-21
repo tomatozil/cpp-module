@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = a.out
 SRC = main.cpp \
-	Bureaucra.cpp \
+	Bureaucrat.cpp \
 	AForm.cpp \
 	ShrubberyCreationForm.cpp \
 	RobotomyRequestForm.cpp \

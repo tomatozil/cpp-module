@@ -2,9 +2,9 @@
 #define AFORM_HPP
 
 #include <iostream>
-#include "Bureaucra.hpp"
+#include "Bureaucrat.hpp"
 
-class Bureaucra;
+class Bureaucrat;
 
 class AForm {
 public:
@@ -13,8 +13,8 @@ public:
 	unsigned int getSignGrade() const;
 	unsigned int getExeGrade() const;
 
-	void beSigned(Bureaucra& bureaucra) throw(GradeTooLowException); //changed the status to signed
-	virtual void execute(Bureaucra const & executor) const throw(NotSignedYetException, GradeTooLowException) = 0;
+	void beSigned(Bureaucrat& bureaucrat) throw(GradeTooLowException); //changed the status to signed
+	virtual void execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException) = 0;
 
 	AForm();
 	AForm(const std::string& name, const unsigned int signGrade, const unsigned int exeGrade);

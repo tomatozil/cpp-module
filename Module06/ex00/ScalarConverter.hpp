@@ -4,7 +4,8 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
-#include <cfloat>
+#include <float.h>
+#include <stdlib.h>
 
 class ScalarConverter {
 private:
@@ -23,7 +24,7 @@ public:
 	static void convertInt(int i);
 	static void convertFloat(float f);
 	static void convertDouble(double d);
-	static void convertNone();
+	static void convertNone(const std::string &literal);
 
 private:
 	ScalarConverter();

@@ -9,10 +9,6 @@ public:
 	A();
 	~A();
 
-	class CastingErrorException : public std::exception {
-		const char * what() const throw();
-	};
-
 private:
 	std::string type;
 };

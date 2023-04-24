@@ -3,8 +3,8 @@
 #include "C.hpp"
 
 Base* generate() {
-//	std::srand(std::time(NULL));
-	int randomNum = std::rand() % 4;
+	std::srand(std::time(NULL));
+	int randomNum = std::rand() % 3;
 	switch (randomNum) {
 		case 0 :
 			return new A();
@@ -29,42 +29,26 @@ void identify(Base* p) {
 
 void identify(Base& p) {
 	try {
-		A a = dynamic_cast<A&>(p);
+		A& a = dynamic_cast<A&>(p);
 		std::cout << a.getType() << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	} catch (std::exception& e) {}
+
 	try {
-		B b = dynamic_cast<B&>(p);
+		B& b = dynamic_cast<B&>(p);
 		std::cout << b.getType() << std::endl;
-		return ;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	} catch (std::exception& e) {}
+
 	try {
-		C c = dynamic_cast<C&>(p);
+		C& c = dynamic_cast<C&>(p);
 		std::cout << c.getType() << std::endl;
-		return ;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	} catch (std::exception& e) {}
 }
 
 int main() {
 	Base* base_ptr1 = generate();
-	Base* base_ptr2 = generate();
-	Base* base_ptr3 = generate();
 
 	identify(base_ptr1);
 	identify(*base_ptr1);
 
-	identify(base_ptr2);
-	identify(*base_ptr2);
-
-	identify(base_ptr3);
-	identify(*base_ptr3);
-
 	delete base_ptr1;
-	delete base_ptr2;
-	delete base_ptr3;
 }

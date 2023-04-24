@@ -7,7 +7,3 @@ std::string& A::getType() {
 A::A() : type("A") {}
 
 A::~A() {}
-
-const char* A::CastingErrorException::what() const throw() {
-	return ("Trying cast to A-type Fails");
-}

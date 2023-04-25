@@ -7,7 +7,7 @@ unsigned int Array<T>::size() const {
 
 template<typename T>
 void Array<T>::print() {
-	for(int i = 0; i < n; i++)
+	for(unsigned int i = 0; i < n; i++)
 		std::cout << arr[i] << "\n";
 }
 
@@ -19,7 +19,7 @@ Array<T>::Array(unsigned int n) : n(n), arr(new T[n]) {}
 
 template<typename T>
 Array<T>::Array(const Array& origin) : n(origin.n), arr(new T[n]) {
-	for(int i = 0; i < n; i++)
+	for(unsigned int i = 0; i < n; i++)
 		arr[i] = origin.arr[i];
 }
 
@@ -29,7 +29,7 @@ Array<T>& Array<T>::operator=(const Array& array) {
 		return (*this);
 	this->n = array.n;
 	this->arr = new T[n];
-	for(int i = 0; i < n; i++)
+	for(unsigned int i = 0; i < n; i++)
 		this->arr[i] = array.arr[i];
 	return (*this);
 }

@@ -13,5 +13,5 @@ add_executable(ex01
 
 add_executable(ex02
         ex02/Array.hpp
-        ex02/Array.cpp
+        ex02/Array.tpp
         ex02/main.cpp)

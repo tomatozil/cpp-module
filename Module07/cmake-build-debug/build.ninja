@@ -108,12 +108,6 @@ build ex01: CXX_EXECUTABLE_LINKER__ex01_Debug CMakeFiles/ex01.dir/ex01/main.cpp.
 
 build cmake_object_order_depends_target_ex02: phony || CMakeFiles/ex02.dir
 
-build CMakeFiles/ex02.dir/ex02/Array.cpp.o: CXX_COMPILER__ex02_Debug /Users/jiyun/cpp-module/Module07/ex02/Array.cpp || cmake_object_order_depends_target_ex02
-  DEP_FILE = CMakeFiles/ex02.dir/ex02/Array.cpp.o.d
-  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fcolor-diagnostics
-  OBJECT_DIR = CMakeFiles/ex02.dir
-  OBJECT_FILE_DIR = CMakeFiles/ex02.dir/ex02
-
 build CMakeFiles/ex02.dir/ex02/main.cpp.o: CXX_COMPILER__ex02_Debug /Users/jiyun/cpp-module/Module07/ex02/main.cpp || cmake_object_order_depends_target_ex02
   DEP_FILE = CMakeFiles/ex02.dir/ex02/main.cpp.o.d
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fcolor-diagnostics
@@ -128,7 +122,7 @@ build CMakeFiles/ex02.dir/ex02/main.cpp.o: CXX_COMPILER__ex02_Debug /Users/jiyun
 #############################################
 # Link the executable ex02
 
-build ex02: CXX_EXECUTABLE_LINKER__ex02_Debug CMakeFiles/ex02.dir/ex02/Array.cpp.o CMakeFiles/ex02.dir/ex02/main.cpp.o
+build ex02: CXX_EXECUTABLE_LINKER__ex02_Debug CMakeFiles/ex02.dir/ex02/main.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   OBJECT_DIR = CMakeFiles/ex02.dir
   POST_BUILD = :

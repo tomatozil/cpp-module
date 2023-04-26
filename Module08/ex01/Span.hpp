@@ -7,7 +7,14 @@
 class Span {
 public:
 	void addNumber(int number) throw(std::runtime_error);
-	void addNumber(int *begin, int *end) throw(std::runtime_error);
+	template<typename Iter>
+	void addNumber(Iter begin, Iter end) throw(std::runtime_error) {
+		unsigned int size = end - begin;
+		if (size > N)
+			throw std::runtime_error("Error: couldn't add that much.");
+		vec.insert(vec.begin(), begin, end);
+		curSize = size;
+	}
 	int shortestSpan() throw(std::runtime_error);
 	int longestSpan() throw(std::runtime_error);
 

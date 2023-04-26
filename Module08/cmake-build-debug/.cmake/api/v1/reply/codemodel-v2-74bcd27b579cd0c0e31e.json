@@ -43,21 +43,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "ex00::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ex00-Debug-f795b8ced8a4e85ec201.json",
+					"jsonFile" : "target-ex00-Debug-e164688b298b4a3721ee.json",
 					"name" : "ex00",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ex01::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ex01-Debug-6d10696a557ec65eda23.json",
+					"jsonFile" : "target-ex01-Debug-8d1de289f12b350f88ae.json",
 					"name" : "ex01",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "ex02::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-ex02-Debug-4796fde25f3ba63179e8.json",
+					"jsonFile" : "target-ex02-Debug-7a77b49bc9dc4de07174.json",
 					"name" : "ex02",
 					"projectIndex" : 0
 				}
@@ -67,8 +67,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/jiyun/cpp-module/Module08/cmake-build-debug",
-		"source" : "/Users/jiyun/cpp-module/Module08"
+		"build" : "/Users/jiyun/cpp/Module08/cmake-build-debug",
+		"source" : "/Users/jiyun/cpp/Module08"
 	},
 	"version" : 
 	{

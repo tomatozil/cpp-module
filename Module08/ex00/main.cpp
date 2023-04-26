@@ -1,28 +1,20 @@
 #include "easyfind.hpp"
 
-#include <array>
 #include <vector>
 #include <list>
 #include <deque>
 
 int main() {
-	std::array<int, 5> arr = {1, 2, 3, 4, 5};
 	std::vector<int> vec;
 	vec.push_back(1);
 	vec.push_back(2);
 	vec.push_back(3);
 	vec.push_back(4);
+	vec.push_back(5);
 	std::list<int> list;
-	list.insert(list.begin(), arr.begin(), arr.end());
+	list.insert(list.begin(), vec.begin(), vec.end());
 	std::deque<int> deq;
-	deq.insert(deq.begin(), arr.begin(), arr.end());
-
-	std::cout << "test array: \n\t";
-	try {
-		std::cout << ::easyfind(arr, 5) << std::endl;
-	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
-	}
+	deq.insert(deq.begin(), vec.begin(), vec.end());
 
 	std::cout << "test vector: \n\t";
 	try {
@@ -40,7 +32,7 @@ int main() {
 
 	std::cout << "test deque: \n\t";
 	try {
-		std::cout << ::easyfind(deq, 2) << std::endl;
+		std::cout << ::easyfind(deq, 6) << std::endl;
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}

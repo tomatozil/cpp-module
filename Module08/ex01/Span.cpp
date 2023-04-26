@@ -8,14 +8,6 @@ void Span::addNumber(int number) throw(std::runtime_error) {
 	curSize++;
 }
 
-void Span::addNumber(int *begin, int *end) throw(std::runtime_error){
-	unsigned int size = end - begin;
-	if (size > N)
-		throw std::runtime_error("Error: couldn't add that much.");
-	vec.insert(vec.begin(), begin, end);
-	curSize = size;
-}
-
 int Span::shortestSpan() throw(std::runtime_error) {
 	if (curSize < 2)
 		throw std::runtime_error("Error: no span can be found.");

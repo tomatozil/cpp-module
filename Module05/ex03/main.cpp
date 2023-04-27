@@ -5,7 +5,7 @@
 
 int main() {
 	Bureaucrat bureaucrat1("b1", 130);
-	Bureaucrat bureaucrat2("b2", 40);
+	Bureaucrat bureaucrat2("b2", 46);
 	Bureaucrat bureaucrat3("b3", 2);
 
 	Intern  intern;

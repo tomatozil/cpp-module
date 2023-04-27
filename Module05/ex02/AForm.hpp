@@ -17,7 +17,7 @@ public:
 	virtual void execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException) = 0;
 
 	AForm();
-	AForm(const std::string& name, const unsigned int signGrade, const unsigned int exeGrade);
+	AForm(const std::string& name, const unsigned int signGrade, const unsigned int exeGrade) throw(InitialGradeTooHighException, InitialGradeTooLowException);
 	AForm(const AForm& origin);
 	AForm& operator=(const AForm& form);
 	virtual ~AForm();

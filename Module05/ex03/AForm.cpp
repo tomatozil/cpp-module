@@ -25,7 +25,7 @@ void AForm::beSigned(Bureaucrat &bureaucrat) throw(GradeTooLowException) {
 
 AForm::AForm() : name("default"), isSigned(false), signGrade(150), exeGrade(150) {}
 
-AForm::AForm(const std::string &name, const unsigned int signGrade, const unsigned int exeGrade)
+AForm::AForm(const std::string &name, const unsigned int signGrade, const unsigned int exeGrade) throw(InitialGradeTooHighException, InitialGradeTooLowException)
 	:name(name), isSigned(false), signGrade(signGrade), exeGrade(exeGrade) {
 	isSigned = false;
 	if (signGrade < 1 || exeGrade < 1)
@@ -50,7 +50,7 @@ const char * AForm::GradeTooHighException::what() const throw() {
 }
 
 const char * AForm::GradeTooLowException::what() const throw() {
-	return ("At Form: Grade is too high.");
+	return ("At Form: Grade is too low.");
 }
 
 const char * AForm::InitialGradeTooHighException::what() const throw() {
@@ -62,7 +62,7 @@ const char * AForm::InitialGradeTooLowException::what() const throw() {
 }
 
 const char * AForm::NotSignedYetException::what() const throw() {
-	return ("At Form: Impossible to execute, Cause is not signed yet.");
+	return ("not signed yet, impossible to execute.");
 }
 
 std::ostream& operator<<(std::ostream& out, const AForm& form) {

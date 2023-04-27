@@ -20,11 +20,27 @@ int main() {
 	std::cout << "------------------------------------" << std::endl;
 
 	Form form4;
+	std::cout << "form4's memory: " << &form4 << std::endl;
 	try {
-		form4 = Form("Anyone's", 149, 11);
+		Form formTmp("Anyone's", 149, 11);
+		form4 = formTmp;
 
 	} catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 	std::cout << form4 << std::endl;
+	std::cout << "[AFTER]form4's memory: " << &form4 << std::endl;
+
+	std::cout << "------------------------------------" << std::endl;
+
+	Bureaucrat bureaucrat3;
+	std::cout << "bureaucrat3's grad: " << bureaucrat3.getGrade() << std::endl;
+	try {
+		Bureaucrat bureaucratTmp("Anyone's", 130);
+		bureaucrat3 = bureaucratTmp;
+
+	} catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	std::cout << "[AFTER]bureaucrat3's grade: " <<  bureaucrat3.getGrade() << std::endl;
 }

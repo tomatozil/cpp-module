@@ -7,11 +7,11 @@ class Bureaucrat {
 public:
 	std::string getName() const;
 	unsigned int getGrade() const;
-	void incrementGrade() throw(GradeTooHighException);
+	void incrementGrade() throw(GradeTooHighException); //throw specification
 	void decrementGrade() throw(GradeTooLowException);
 
 	Bureaucrat();
-	Bureaucrat(const std::string& name, unsigned int grade);
+	Bureaucrat(const std::string& name, unsigned int grade) throw(GradeTooHighException, GradeTooLowException);
 	Bureaucrat(const Bureaucrat& origin);
 	Bureaucrat& operator=(const Bureaucrat& bureaucrat);
 	~Bureaucrat();

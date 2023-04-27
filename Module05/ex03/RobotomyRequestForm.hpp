@@ -16,6 +16,7 @@ public:
 
 private:
 	const std::string target;
+
 	RobotomyRequestForm();
 	RobotomyRequestForm& operator=(const RobotomyRequestForm& robotomyRequest);
 };

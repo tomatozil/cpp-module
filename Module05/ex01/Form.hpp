@@ -16,7 +16,7 @@ public:
 	void beSigned(Bureaucrat& bureaucrat) throw(GradeTooLowException); //changed the status to signed
 
 	Form();
-	Form(const std::string& name, const unsigned int signGrade, const unsigned int exeGrade);
+	Form(const std::string& name, const unsigned int signGrade, const unsigned int exeGrade) throw(InitialGradeTooHighException, InitialGradeTooLowException);
 	Form(const Form& origin);
 	Form& operator=(const Form& form);
 	~Form();

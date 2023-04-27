@@ -8,13 +8,13 @@ class PresidentialPardonForm : public AForm {
 public:
 	virtual void execute(Bureaucrat const & executor) const throw(NotSignedYetException, GradeTooLowException);
 
-
 	PresidentialPardonForm(const std::string& target);
 	PresidentialPardonForm(const PresidentialPardonForm& origin);
 	virtual ~PresidentialPardonForm();
 
 private:
 	const std::string target;
+
 	PresidentialPardonForm();
 	PresidentialPardonForm& operator=(const PresidentialPardonForm& presidentialPardon);
 };

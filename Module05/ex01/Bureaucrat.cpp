@@ -31,9 +31,9 @@ void Bureaucrat::signForm(Form& form) {
 	}
 }
 
-Bureaucrat::Bureaucrat() {}
+Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : name(name), grade(grade) {
+Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) throw(InitialGradeTooHighException, InitialGradeTooLowException): name(name), grade(grade) {
 	if (grade < 1)
 		throw InitialGradeTooHighException();
 	if (grade > 150)
@@ -45,7 +45,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& origin) : name(origin.name), grade(orig
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& bureaucrat) {
 	if (this == &bureaucrat)
 		return (*this);
-	// const variable name can't be initialized
+	// const variable name can't be changed
 	grade = bureaucrat.grade;
 	return (*this);
 }

@@ -8,31 +8,31 @@ int main() {
 	try {
 		bureaucrat1.decrementGrade();
 	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << e.what() << "\n";
 	}
-	std::cout << bureaucrat1 << std::endl;
+	std::cout << bureaucrat1 << "\n";
 
-	std::cout << "\n2: \n";
+	std::cout << "2: \n";
 	try {
 		bureaucrat2.incrementGrade();
 	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << e.what() << "\n";
 	}
-	std::cout << bureaucrat2 << std::endl;
+	std::cout << bureaucrat2 << "\n";
 
-	std::cout << "\n3: \n";
+	std::cout << "3: \n";
 	try {
 		bureaucrat2.incrementGrade();
 	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << e.what() << "\n";
 	}
-	std::cout << bureaucrat2 << std::endl;
+	std::cout << bureaucrat2 << "\n";
 
-	std::cout << "\n4: \n";
+	std::cout << "4: \n";
 	try {
 		bureaucrat2.decrementGrade();
 	} catch (std::exception& e) {
-		std::cout << e.what() << std::endl;
+		std::cout << e.what() << "\n";
 	}
-	std::cout << bureaucrat2 << std::endl;
+	std::cout << bureaucrat2 << "\n";
 }

@@ -15,7 +15,7 @@ public:
 	void signForm(Form& form);
 
 	Bureaucrat();
-	Bureaucrat(const std::string& name, unsigned int grade);
+	Bureaucrat(const std::string& name, unsigned int grade) throw(InitialGradeTooHighException, InitialGradeTooLowException);
 	Bureaucrat(const Bureaucrat& origin);
 	Bureaucrat& operator=(const Bureaucrat& bureaucrat);
 	~Bureaucrat();

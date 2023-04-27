@@ -15,6 +15,7 @@ public:
 
 private:
 	const std::string target;
+
 	ShrubberyCreationForm();
 	ShrubberyCreationForm& operator=(const ShrubberyCreationForm& shrubberyCreation);
 };

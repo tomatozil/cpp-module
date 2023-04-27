@@ -4,7 +4,7 @@
 #include "PresidentialPardonForm.hpp"
 
 int main() {
-	Bureaucrat bureaucrat1("b1", 130);
+	Bureaucrat bureaucrat1("b1", 140);
 	Bureaucrat bureaucrat2("b2", 40);
 	Bureaucrat bureaucrat3("b3", 2);
 

@@ -41,7 +41,8 @@ void Bureaucrat::executeForm(const AForm &form) {
 
 Bureaucrat::Bureaucrat() : name("Default"), grade(150) {}
 
-Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) : name(name), grade(grade) {
+Bureaucrat::Bureaucrat(const std::string& name, unsigned int grade) throw(InitialGradeTooHighException, InitialGradeTooLowException)
+	: name(name), grade(grade) {
 	if (grade < 1)
 		throw InitialGradeTooHighException();
 	if (grade > 150)

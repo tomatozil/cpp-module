@@ -17,7 +17,7 @@ unsigned int Form::getExeGrade() const {
 }
 
 void Form::beSigned(Bureaucrat &bureaucrat) throw(Form::GradeTooLowException) {
-	if (bureaucratt.getGrade() > this->getSignGrade())
+	if (bureaucrat.getGrade() > this->getSignGrade())
 		throw Form::GradeTooLowException();
 	std::cout << bureaucrat.getName() << " just signed." << std::endl;
 	this->isSigned = true;
@@ -25,7 +25,7 @@ void Form::beSigned(Bureaucrat &bureaucrat) throw(Form::GradeTooLowException) {
 
 Form::Form() : name("default"), isSigned(false), signGrade(150), exeGrade(150) {}
 
-Form::Form(const std::string &name, const unsigned int signGrade, const unsigned int exeGrade)
+Form::Form(const std::string &name, const unsigned int signGrade, const unsigned int exeGrade) throw(InitialGradeTooHighException, InitialGradeTooLowException)
 	:name(name), isSigned(false), signGrade(signGrade), exeGrade(exeGrade) {
 	if (signGrade < 1 || exeGrade < 1)
 		throw InitialGradeTooHighException();
@@ -33,9 +33,12 @@ Form::Form(const std::string &name, const unsigned int signGrade, const unsigned
 		throw InitialGradeTooLowException();
 }
 
-Form::Form(const Form &origin) : name(origin.name), isSigned(origin.isSigned), signGrade(origin.signGrade), exeGrade(origin.exeGrade) {}
+Form::Form(const Form &origin) : name(origin.name), isSigned(origin.isSigned), signGrade(origin.signGrade), exeGrade(origin.exeGrade) {
+	std::cout << "Form's copy constructor executed" << "\n";
+}
 
 Form& Form::operator=(const Form &form) {
+	std::cout << "Form's copy assignment operator executed" << "\n";
 	if (this == &form)
 		return (*this);
 	isSigned = form.isSigned;
@@ -49,7 +52,7 @@ const char * Form::GradeTooHighException::what() const throw() {
 }
 
 const char * Form::GradeTooLowException::what() const throw() {
-	return ("At Form: Grade is too high.");
+	return ("At Form: Grade is too low.");
 }
 
 const char* Form::InitialGradeTooHighException::what() const throw() {

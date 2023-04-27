@@ -1,0 +1,9 @@
+# ninja log v5
+0	492	1682499217601566197	CMakeFiles/btc.dir/ex00/BitCoinChange.cpp.o	7243500ebf525741
+0	1202	1682503657159192336	CMakeFiles/test.dir/test.cpp.o	7c94d1ba64bf3af1
+2	637	1682503706550941596	CMakeFiles/test.dir/test.cpp.o	7c94d1ba64bf3af1
+3	643	1682503726213862862	CMakeFiles/test.dir/test.cpp.o	7c94d1ba64bf3af1
+1	638	1682503745014812943	CMakeFiles/test.dir/test.cpp.o	7c94d1ba64bf3af1
+638	705	1682503745084409839	test	f462f1835fef7cd6
+3	722	1682503770945480965	CMakeFiles/test.dir/test.cpp.o	7c94d1ba64bf3af1
+723	789	1682503771014321265	test	f462f1835fef7cd6

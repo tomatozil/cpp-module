@@ -9,6 +9,7 @@ add_executable(btc
 #        ex00/BitCoinChange.hpp
 #        ex00/data.csv
         ex00/tmp.csv
+        input.txt
         )
 
 add_executable(test

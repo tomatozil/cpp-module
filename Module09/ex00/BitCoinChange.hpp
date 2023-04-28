@@ -3,24 +3,27 @@
 
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <map>
 
 class BitCoinChange {
 public:
-	static void transDataInMap(std::string& fileName);
-	static void multValues(float dataValue, float inputValue);
+	static std::string getExtension(std::string& filePath);
+//	void txtInMap(std::string& filePath);
+//	std::string transDataInMap(std::string& fileName);
 
-private:
+	void multValues(float dataValue, float inputValue);
+
 	BitCoinChange();
-	BitCoinChange(const BitCoinChange& origin);
-	BitCoinChange& operator=(const BitCoinChange& bitCoinChange);
 	~BitCoinChange();
 
-	class FileOpenFailureException : public std::exception {
-		const char * what() const throw();
-	};
+private:
+	void csvInMap(std::string& fileName);
 
-	static std::map<std::string, float> dataBase;
-	static std::map<std::string, float> inputFile;
+	BitCoinChange(const BitCoinChange& origin);
+	BitCoinChange& operator=(const BitCoinChange& bitCoinChange);
+
+private:
+	std::map<std::string, float> dataBase;
 };
 #endif

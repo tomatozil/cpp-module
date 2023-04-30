@@ -9,16 +9,14 @@
 class BitCoinChange {
 public:
 	static std::string getExtension(std::string& filePath);
-//	void txtInMap(std::string& filePath);
-//	std::string transDataInMap(std::string& fileName);
-
-	void multValues(float dataValue, float inputValue);
+	std::pair<std::string, float> txtToPair(std::string& line);
+	float closestValue(std::string& targetKey);
 
 	BitCoinChange();
 	~BitCoinChange();
 
 private:
-	void csvInMap(std::string& fileName);
+	void csvToMap(std::string& fileName);
 
 	BitCoinChange(const BitCoinChange& origin);
 	BitCoinChange& operator=(const BitCoinChange& bitCoinChange);

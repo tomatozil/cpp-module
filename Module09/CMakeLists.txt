@@ -5,9 +5,9 @@ set(CMAKE_CXX_STANDARD 98)
 
 add_executable(btc
         ex00/main.cpp
-#        ex00/BitCoinChange.cpp
-#        ex00/BitCoinChange.hpp
-#        ex00/data.csv
+        ex00/BitCoinChange.cpp
+        ex00/BitCoinChange.hpp
+        ex00/data.csv
         ex00/tmp.csv
         input.txt
         )

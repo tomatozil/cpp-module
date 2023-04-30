@@ -9,8 +9,8 @@ std::string BitCoinChange::getExtension(std::string& filePath) {
 	return filePath.substr(dotPos);
 }
 
-void BitCoinChange::csvInMap(std::string &filePath) {
-	std::ifstream infile(filePath);
+void BitCoinChange::csvToMap(std::string &fileName) {
+	std::ifstream infile(fileName);
 	if (!infile.is_open()) {
 		throw std::runtime_error("Error: file open fail.");
 	}
@@ -37,55 +37,45 @@ void BitCoinChange::csvInMap(std::string &filePath) {
 	infile.close();
 }
 
-//void BitCoinChange::txtInMap(std::string& filePath) {
-//	std::ifstream infile(filePath);
-//	if (!infile.is_open()) {
-//		throw std::runtime_error("Error: file open fail.");
-//	}
-//	std::string line;
-//	std::getline(infile, line);
-//	while (std::getline(infile, line)) {
-//		std::string key;
-//		float value;
-//		size_t barPos = line.find('|'); //형식이 , 가 아니면
-//		if (barPos == std::string::npos) {
-//			key = "Error: bad input => " + line.substr(0, barPos);
-//			inputFile.insert(std::make_pair(key, -1.0f));
-//		}
-//		else {
-//			key = line.substr(0, barPos);
-//			std::string price = line.substr(barPos + 1);
-//			std::stringstream insstream(price);
-//			size_t dotPos = price.find('.');
-//			if (dotPos == std::string::npos)
-//				insstream >> std::fixed >> std::setprecision(0) >> value;
-//			else
-//				insstream >> std::fixed >> std::setprecision(price.length() - dotPos - 1) >> value;
-//
-//			if (value < 0)
-//				key = "Error: not a positive number.";
-//			if (value > 1000)
-//				key = "Error: too large a number.";
-//			inputFile.insert(std::make_pair(key, value));
-//		}
-//	}
-//	infile.close();
-//}
+std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
+		std::string key;
+		float value;
+		size_t barPos = line.find('|'); //형식이 , 가 아니면
+		if (barPos == std::string::npos) {
+			key = "Error: bad input => " + line.substr(0, barPos);
+			return std::make_pair(key, -1.0f);
+		}
+		else {
+			key = line.substr(0, barPos);
+			std::string price = line.substr(barPos + 1);
+			std::stringstream insstream(price);
+			size_t dotPos = price.find('.');
+			if (dotPos == std::string::npos)
+				insstream >> std::fixed >> std::setprecision(0) >> value;
+			else
+				insstream >> std::fixed >> std::setprecision(price.length() - dotPos - 1) >> value;
+			if (value < 0)
+				key = "Error: not a positive number.";
+			if (value > 1000)
+				key = "Error: too large a number.";
+			return std::make_pair(key, value);
+		}
+}
 
-//std::string BitCoinChange::transDataInMap(std::string& filePath) {
-//	std::string extension = getExtension(filePath);
-//	if (extension == ".txt")
-//		txtInMap(filePath);
-//	if (getExtension(filePath) == ".csv")
-//		csvInMap(filePath);
-//	return (extension);
-//}
+float BitCoinChange::closestValue(std::string &targetKey) {
+	std::map<std::string, float>::const_iterator iter;
+	iter = dataBase.lower_bound(targetKey);
+	iter--;
+	if (iter == dataBase.end())
+		throw std::runtime_error("Error: could not find closest value.");
+	return (iter->second);
+}
 
 BitCoinChange::BitCoinChange() {
 	std::string filePath("../ex00/data.csv");
 	if (getExtension(filePath) != ".csv")
 		throw std::runtime_error("Error: did not receive csv file.");
-	csvInMap(filePath);
+	csvToMap(filePath);
 }
 
 BitCoinChange::BitCoinChange(const BitCoinChange &origin)

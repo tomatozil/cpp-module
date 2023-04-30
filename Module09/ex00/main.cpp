@@ -7,24 +7,39 @@ int main(int argc, char *argv[]) {
 		return -1;
 	}
 	// .csv -> std::map database, .txt -> std::map inputfile
+	std::string filePath(argv[1]);
+	if (BitCoinChange::getExtension(filePath) != ".txt") {
+		std::cout << "Error: did not receive txt file." << std::endl;
+		return -1;
+	}
+	std::ifstream infile(filePath);
+	if (!infile.is_open()) {
+		throw std::runtime_error("Error: file open fail.");
+	}
 	try {
-		std::string filePath(argv[1]);
-		if (BitCoinChange::getExtension(filePath) != ".txt") {
-			std::cout << "Error: did not receive txt file." << std::endl;
-			return -1;
-		}
 		BitCoinChange bitCoinChange;
-
+		std::string line;
+		std::getline(infile, line);
+		while (std::getline(infile, line)) {
+			std::pair<std::string, float> pair = bitCoinChange.txtToPair(line);
+			if (pair.first.find("Error") != std::string::npos)
+				std::cout << pair.first << std::endl;
+			else {
+				float coinValue = pair.second;
+				float coinPrice = bitCoinChange.closestValue(pair.first);
+				std::cout << pair.first << "=> " << coinValue << " = " << coinPrice * coinValue << std::endl;
+			}
+		}
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-	// inputfile의 key와 같거나 작은 database key를 찾고, value끼리 곱하기
+	return 0;
 }
 
 
 //class A {
 //public:
-//	void csvInMap(std::string &filePath) {
+//	void csvToMap(std::string &filePath) {
 //		std::ifstream infile(filePath);
 //		if (!infile.is_open()) {
 //			throw std::runtime_error("Error: file open fail.");
@@ -52,7 +67,7 @@ int main(int argc, char *argv[]) {
 //		infile.close();
 //	}
 //
-//	void txtInMap(std::string& filePath) {
+//	void txtToPair(std::string& filePath) {
 //		std::ifstream infile(filePath);
 //		if (!infile.is_open()) {
 //			throw std::runtime_error("Error: file open fail.");
@@ -110,9 +125,9 @@ int main(int argc, char *argv[]) {
 //
 //int main() {
 //	A a;
-////	std::string txtPath("../input.txt");
+//	std::string txtPath("../input.txt");
 //	std::string csvPath("../ex00/tmp.csv");
-//	a.csvInMap(csvPath);
-////	a.txtInMap(txtPath);
+//	a.csvToMap(csvPath);
+//	a.txtToPair(txtPath);
 //	a.printMap();
 //}

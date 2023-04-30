@@ -65,9 +65,11 @@ std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
 float BitCoinChange::closestValue(std::string &targetKey) {
 	std::map<std::string, float>::const_iterator iter;
 	iter = dataBase.lower_bound(targetKey);
-	iter--;
+	if (iter == dataBase.begin())
+		return (iter->second);
 	if (iter == dataBase.end())
 		throw std::runtime_error("Error: could not find closest value.");
+	iter--;
 	return (iter->second);
 }
 

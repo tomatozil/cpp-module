@@ -1,12 +1,10 @@
 #include "BitCoinChange.hpp"
 
 int main(int argc, char *argv[]) {
-	// .txt 파일 유효성
 	if (argc != 2) {
 		std::cout << "Error: could not open file." << std::endl;
 		return -1;
 	}
-	// .csv -> std::map database, .txt -> std::map inputfile
 	std::string filePath(argv[1]);
 	if (BitCoinChange::getExtension(filePath) != ".txt") {
 		std::cout << "Error: did not receive txt file." << std::endl;
@@ -14,7 +12,8 @@ int main(int argc, char *argv[]) {
 	}
 	std::ifstream infile(filePath);
 	if (!infile.is_open()) {
-		throw std::runtime_error("Error: file open fail.");
+		std::cout << "Error: file open fail." << std::endl;
+		return -1;
 	}
 	try {
 		BitCoinChange bitCoinChange;

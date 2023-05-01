@@ -65,16 +65,16 @@ std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
 float BitCoinChange::closestValue(std::string &targetKey) {
 	std::map<std::string, float>::const_iterator iter;
 	iter = dataBase.lower_bound(targetKey);
-	if (iter == dataBase.begin())
-		return (iter->second);
 	if (iter == dataBase.end())
-		throw std::runtime_error("Error: could not find closest value.");
+		throw std::out_of_range("Error: out of range.");
 	iter--;
+	if (iter->first.empty())
+		throw std::out_of_range("Error: out of range.");
 	return (iter->second);
 }
 
 BitCoinChange::BitCoinChange() {
-	std::string filePath("../ex00/data.csv");
+	std::string filePath("data.csv");
 	if (getExtension(filePath) != ".csv")
 		throw std::runtime_error("Error: did not receive csv file.");
 	csvToMap(filePath);

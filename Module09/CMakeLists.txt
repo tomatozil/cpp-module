@@ -8,9 +8,12 @@ add_executable(btc
         ex00/BitCoinChange.cpp
         ex00/BitCoinChange.hpp
         ex00/data.csv
-        ex00/tmp.csv
-        input.txt
-        )
+        input.txt)
+
+add_executable(rpn
+        ex01/main.cpp
+        ex01/RPN.hpp
+        ex01/RPN.cpp)
 
 add_executable(test
         test.cpp)

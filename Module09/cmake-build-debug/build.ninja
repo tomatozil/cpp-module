@@ -112,6 +112,37 @@ build rpn: CXX_EXECUTABLE_LINKER__rpn_Debug CMakeFiles/rpn.dir/ex01/main.cpp.o C
   TARGET_PDB = rpn.dbg
 
 # =============================================================================
+# Object build statements for EXECUTABLE target pmm
+
+
+#############################################
+# Order-only phony target for pmm
+
+build cmake_object_order_depends_target_pmm: phony || CMakeFiles/pmm.dir
+
+build CMakeFiles/pmm.dir/ex02/main.cpp.o: CXX_COMPILER__pmm_Debug /Users/jiyun/cpp-module/Module09/ex02/main.cpp || cmake_object_order_depends_target_pmm
+  DEP_FILE = CMakeFiles/pmm.dir/ex02/main.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/pmm.dir
+  OBJECT_FILE_DIR = CMakeFiles/pmm.dir/ex02
+
+
+# =============================================================================
+# Link build statements for EXECUTABLE target pmm
+
+
+#############################################
+# Link the executable pmm
+
+build pmm: CXX_EXECUTABLE_LINKER__pmm_Debug CMakeFiles/pmm.dir/ex02/main.cpp.o
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
+  OBJECT_DIR = CMakeFiles/pmm.dir
+  POST_BUILD = :
+  PRE_LINK = :
+  TARGET_FILE = pmm
+  TARGET_PDB = pmm.dbg
+
+# =============================================================================
 # Object build statements for EXECUTABLE target test
 
 
@@ -176,7 +207,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 #############################################
 # Folder: /Users/jiyun/cpp-module/Module09/cmake-build-debug
 
-build all: phony btc rpn test
+build all: phony btc rpn pmm test
 
 # =============================================================================
 # Built-in targets

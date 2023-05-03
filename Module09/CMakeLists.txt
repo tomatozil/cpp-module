@@ -15,5 +15,11 @@ add_executable(rpn
         ex01/RPN.hpp
         ex01/RPN.cpp)
 
+add_executable(pmm
+        ex02/main.cpp
+#        ex02/PmergeMe.hpp
+#        ex02/PmergeMe.cpp
+        )
+
 add_executable(test
         test.cpp)

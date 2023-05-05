@@ -9,7 +9,14 @@ class PmergeMe {
 public:
 	void giveValues(char *argv[]);
 	template<typename T>
-	void sort(T arr, int f, int l);
+	void printValues(T& arr);
+	template<typename T>
+	void sort(T& arr, int f, int l);
+
+	std::vector<int>& getVec();
+	std::deque<int>& getDeq();
+	template<typename T>
+	size_t getContainerSize(T& arr);
 	static PmergeMe* getInstance();
 
 private:

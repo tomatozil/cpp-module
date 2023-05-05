@@ -126,6 +126,12 @@ build CMakeFiles/pmm.dir/ex02/main.cpp.o: CXX_COMPILER__pmm_Debug /Users/jiyun/c
   OBJECT_DIR = CMakeFiles/pmm.dir
   OBJECT_FILE_DIR = CMakeFiles/pmm.dir/ex02
 
+build CMakeFiles/pmm.dir/ex02/PmergeMe.cpp.o: CXX_COMPILER__pmm_Debug /Users/jiyun/cpp-module/Module09/ex02/PmergeMe.cpp || cmake_object_order_depends_target_pmm
+  DEP_FILE = CMakeFiles/pmm.dir/ex02/PmergeMe.cpp.o.d
+  FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15 -fcolor-diagnostics
+  OBJECT_DIR = CMakeFiles/pmm.dir
+  OBJECT_FILE_DIR = CMakeFiles/pmm.dir/ex02
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target pmm
@@ -134,7 +140,7 @@ build CMakeFiles/pmm.dir/ex02/main.cpp.o: CXX_COMPILER__pmm_Debug /Users/jiyun/c
 #############################################
 # Link the executable pmm
 
-build pmm: CXX_EXECUTABLE_LINKER__pmm_Debug CMakeFiles/pmm.dir/ex02/main.cpp.o
+build pmm: CXX_EXECUTABLE_LINKER__pmm_Debug CMakeFiles/pmm.dir/ex02/main.cpp.o CMakeFiles/pmm.dir/ex02/PmergeMe.cpp.o
   FLAGS = -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -mmacosx-version-min=10.15
   OBJECT_DIR = CMakeFiles/pmm.dir
   POST_BUILD = :

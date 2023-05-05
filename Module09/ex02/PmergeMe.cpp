@@ -1,7 +1,18 @@
 #include "PmergeMe.hpp"
 
 template<typename T>
-void merge(T arr, int f, int m, int l) {
+void PmergeMe::printValues(T& arr) {
+	typename T::iterator iter;
+	for(iter = arr.begin(); iter < arr.end(); iter++) {
+		if (iter + 1 == arr.end())
+			std::cout << *iter << std::endl;
+		else
+			std::cout << *iter << " ";
+	}
+}
+
+template<typename T>
+void merge(T& arr, int f, int m, int l) {
 	int leftLen = m - f + 1;
 	int rightLen = l - m;
 	T left;
@@ -26,7 +37,7 @@ void merge(T arr, int f, int m, int l) {
 }
 
 template<typename T>
-void insert(T arr, int f, int l) {
+void insert(T& arr, int f, int l) {
 	for(int i = f; i < l; i++) {
 		int targetValue = arr[i + 1];
 		int j = i + 1;
@@ -39,21 +50,15 @@ void insert(T arr, int f, int l) {
 }
 
 template<typename T>
-void PmergeMe::sort(T arr, int f, int l) {
+void PmergeMe::sort(T& arr, int f, int l) {
 	if (l - f > 5) {
-		int m = (f + 1) / 2;
+		int m = (f + l) / 2;
 		sort(arr, f, m);
 		sort(arr, m + 1, l);
 		merge(arr, f, m, l);
 	} else {
 		insert(arr, f, l);
 	}
-}
-
-PmergeMe* PmergeMe::getInstance() {
-	if (instance == NULL)
-		instance = new PmergeMe();
-	return (instance);
 }
 
 void PmergeMe::giveValues(char **argv) {
@@ -67,6 +72,25 @@ void PmergeMe::giveValues(char **argv) {
 		vec.push_back(value);
 		deq.push_back(value);
 	}
+}
+
+std::vector<int>& PmergeMe::getVec() {
+	return vec;
+}
+
+std::deque<int>& PmergeMe::getDeq() {
+	return deq;
+}
+
+template<typename T>
+size_t PmergeMe::getContainerSize(T &arr) {
+	return arr.size();
+}
+
+PmergeMe* PmergeMe::getInstance() {
+	if (instance == NULL)
+		instance = new PmergeMe();
+	return (instance);
 }
 
 PmergeMe::PmergeMe() {}

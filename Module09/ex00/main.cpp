@@ -26,7 +26,10 @@ int main(int argc, char *argv[]) {
 			else {
 				float coinValue = pair.second;
 				float coinPrice = bitCoinChange.closestValue(pair.first);
-				std::cout << pair.first << "=> " << coinValue << " = " << coinPrice * coinValue << std::endl;
+				if (coinPrice == -0.1f)
+					std::cout << "Error: out of range." << std::endl;
+				else
+					std::cout << pair.first << "=> " << coinValue << " = " << coinPrice * coinValue << std::endl;
 			}
 		}
 	} catch (std::exception& e) {

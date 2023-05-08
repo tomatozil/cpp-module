@@ -64,12 +64,14 @@ std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
 
 float BitCoinChange::closestValue(std::string &targetKey) {
 	std::map<std::string, float>::const_iterator iter;
-	iter = dataBase.lower_bound(targetKey);
+	iter = dataBase.lower_bound(targetKey); // 끝에 " " 하나가 더 들어가서 항상 하나 뒤에 것이 나옴.
 	if (iter == dataBase.end())
-		throw std::out_of_range("Error: out of range.");
+//		throw std::out_of_range("Error: out of range.");
+		return -0.1f;
 	iter--;
 	if (iter->first.empty())
-		throw std::out_of_range("Error: out of range.");
+//		throw std::out_of_range("Error: out of range.");
+		return -0.1f;
 	return (iter->second);
 }
 

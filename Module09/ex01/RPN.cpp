@@ -33,6 +33,8 @@ void RPN::pushPossibleValue(char c) {
 }
 
 size_t RPN::valuePoppedOut() {
+	if (stack.empty())
+		throw std::runtime_error("Error: valance between number and operator sign doesn't good.");
 	size_t i = stack.top();
 	stack.pop();
 	return i;
@@ -83,5 +85,10 @@ RPN::~RPN() {
 }
 
 RPN::RPN(const RPN &origin) {
+	(void)origin;
 	delete this;
 }
+
+//RPN &RPN::operator=(const RPN &rpn) {
+//	delete this;
+//}

@@ -9,9 +9,9 @@ class RPN {
 public:
 	static bool isOperator(char c);
 	static RPN* getInstance();
-	size_t valuePoppedOut();
+	ssize_t valuePoppedOut();
 	void calc(char c);
-	void pushPossibleValue(char c);
+	void pushPossibleValue(std::string::iterator& strIter);
 	void checkStack();
 
 private:
@@ -21,7 +21,7 @@ private:
 	~RPN();
 
 private:
-	std::stack<size_t> stack;
+	std::stack<ssize_t> stack;
 	static RPN* instanceRPN;
 };
 

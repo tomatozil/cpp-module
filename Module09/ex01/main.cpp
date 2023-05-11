@@ -15,7 +15,7 @@ int main(int argc, char *argv[]) {
 		while (strIter != arg.end()) {
 			if (RPN::isOperator(*strIter))
 				rpn->calc(*strIter);
-			rpn->pushPossibleValue(*strIter);
+			rpn->pushPossibleValue(strIter);
 			strIter++;
 		}
 		rpn->checkStack();

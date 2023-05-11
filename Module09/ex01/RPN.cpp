@@ -1,18 +1,20 @@
 #include "RPN.hpp"
 
-size_t calcPlus(size_t first, size_t second) {
+ssize_t calcPlus(ssize_t first, ssize_t second) {
 	return second + first;
 }
 
-size_t calcMinus(size_t first, size_t second) {
+ssize_t calcMinus(ssize_t first, ssize_t second) {
 	return second - first;
 }
 
-size_t calcMult(size_t first, size_t second) {
+ssize_t calcMult(ssize_t first, ssize_t second) {
 	return second * first;
 }
 
-size_t calcDivide(size_t first, size_t second) {
+ssize_t calcDivide(ssize_t first, ssize_t second) {
+	if (first == 0)
+		throw std::runtime_error("Error");
 	return second / first;
 }
 
@@ -22,26 +24,28 @@ bool RPN::isOperator(char c) {
 	return false;
 }
 
-void RPN::pushPossibleValue(char c) {
-	if (c == ' ')
+void RPN::pushPossibleValue(std::string::iterator& strIter) {
+	if (*strIter == ' ')
 		return ;
-	if (isOperator(c))
+	if (isOperator(*strIter))
 		return ;
-	if (!isdigit(c))
+	if (!isdigit(*strIter))
 		throw std::runtime_error("Error");
-	stack.push(c - 48);
+	if (isdigit(*(strIter + 1)))
+		throw std::runtime_error("Error");
+	stack.push(*strIter - 48);
 }
 
-size_t RPN::valuePoppedOut() {
+ssize_t RPN::valuePoppedOut() {
 	if (stack.empty())
 		throw std::runtime_error("Error: valance between number and operator sign doesn't good.");
-	size_t i = stack.top();
+	ssize_t i = stack.top();
 	stack.pop();
 	return i;
 }
 
 void RPN::calc(char c) {
-	size_t ret;
+	ssize_t ret;
 	char operators[4] = {'+', '-', '*', '/'};
 	int i = -1;
 	while (++i < 4)

@@ -3,7 +3,7 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 NAME = a.out
 SRC = main.cpp \
-	Serialize.cpp
+	Serializer.cpp
 
 OBJ = $(SRC:%.cpp=%.o)
 INCLUDES = -I./

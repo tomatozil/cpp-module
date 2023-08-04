@@ -1,7 +1,7 @@
 #include "ScalarConverter.hpp"
 
 void ScalarConverter::convert(const std::string &literal) {
-	switch (whichType(literal)) {
+	switch (static_cast<DataType>(whichType(literal))) {
 		case CHAR:
 			convertChar(static_cast<char>(literal[0]));
 			break;
@@ -101,28 +101,28 @@ void ScalarConverter::convertNone(const std::string &literal) {
 	}
 }
 
-ScalarConverter::DataType ScalarConverter::whichType(const std::string &literal) {
-	ScalarConverter::DataType (*f[4])(const std::string &literal) = {&isChar, &isInt, &isFloat, &isDouble};
+int ScalarConverter::whichType(const std::string &literal) {
+	int (*f[4])(const std::string &literal) = {&isChar, &isInt, &isFloat, &isDouble};
 
-	DataType tmp;
+	int tmp;
 	for(int i = 0; i < 4; i++) {
 		tmp = (*f[i])(literal);
-		if (tmp != NONE)
-			return (tmp);
+		if (static_cast<DataType>(tmp) != NONE)
+			return (static_cast<DataType>(tmp));
 	}
 	return (NONE);
 }
 
-ScalarConverter::DataType ScalarConverter::isChar(const std::string &literal) {
+int ScalarConverter::isChar(const std::string &literal) {
 	if (literal.length() != 1)
 		return (NONE);
 	if (isascii(literal[0]))
-		if ('0' <= toascii(literal[0]) && toascii(literal[0]) <= '9')
-			return (NONE);
+	  if ('0' <= toascii(literal[0]) && toascii(literal[0]) <= '9')
+		return (NONE);
 	return (CHAR);
 }
 
-ScalarConverter::DataType ScalarConverter::isInt(const std::string &literal) {
+int ScalarConverter::isInt(const std::string &literal) {
 	if (literal.find('.') != std::string::npos)
 		return (NONE);
 	std::stringstream stream(literal);
@@ -135,7 +135,7 @@ ScalarConverter::DataType ScalarConverter::isInt(const std::string &literal) {
 	return (INT);
 }
 
-ScalarConverter::DataType ScalarConverter::isFloat(const std::string &literal) {
+int ScalarConverter::isFloat(const std::string &literal) {
 	if (literal.find('f') == std::string::npos)
 		return (NONE);
 	std::string str = literal;
@@ -152,14 +152,16 @@ ScalarConverter::DataType ScalarConverter::isFloat(const std::string &literal) {
 	return (FLOAT);
 }
 
-ScalarConverter::DataType ScalarConverter::isDouble(const std::string &literal) {
+int ScalarConverter::isDouble(const std::string &literal) {
 	std::stringstream stream(literal);
 	double d;
 	stream >> d;
 	if (stream.fail())
 		return (NONE);
+	if (isnan(d))
+	  	return (NONE);
 	if (DBL_MIN > d || d > DBL_MAX)
-		return (NONE);
+	  	return (NONE);
 	return (DOUBLE);
 }
 

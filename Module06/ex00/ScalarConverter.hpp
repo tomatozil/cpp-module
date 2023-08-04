@@ -4,21 +4,22 @@
 #include <iostream>
 #include <sstream>
 #include <iomanip>
+#include <math.h>
 #include <float.h>
 #include <stdlib.h>
 
 class ScalarConverter {
 private:
-	typedef enum {CHAR, INT, FLOAT, DOUBLE, NONE} DataType;
+  	enum DataType {CHAR, INT, FLOAT, DOUBLE, NONE};
 
 public:
 	static void convert(const std::string& literal);
-	static DataType whichType(const std::string& literal);
+	static int whichType(const std::string& literal);
 
-	static DataType isChar(const std::string& literal);
-	static DataType isInt(const std::string& literal);
-	static DataType isFloat(const std::string& literal);
-	static DataType isDouble(const std::string& literal);
+	static int isChar(const std::string& literal);
+	static int isInt(const std::string& literal);
+	static int isFloat(const std::string& literal);
+	static int isDouble(const std::string& literal);
 
 	static void convertChar(char c);
 	static void convertInt(int i);

@@ -57,12 +57,10 @@ int main()
 
 	std::cout << "While: \n";
 	while (it2 != ite2) {
-		std::cout << "*it: " << *it2 << std::endl;
+		std::cout << "*it2: " << *it2 << std::endl;
 		++it2;
 	}
 	std::list<int> l(mslist);
 	std::cout << "s's top: " << l.back() << std::endl;
 	std::cout << "s's size: " << l.size() << std::endl;
-
-	return 0;
 }

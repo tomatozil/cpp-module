@@ -10,14 +10,13 @@ public:
 	typedef typename std::stack<T>::container_type::iterator iterator;
 
 	iterator begin() {
-		return std::stack<T>::c.begin();
+		return this->c.begin();
 	}
 	iterator end() {
-		return std::stack<T>::c.end();
+		return this->c.end();
 	}
 
 	MutantStack() : std::stack<T>() {}
-	MutantStack(const std::deque<T>& c) : std::stack<T>(c) {}
 	MutantStack(const MutantStack& origin) : std::stack<T>(origin) {}
 	MutantStack& operator=(const MutantStack& mutantStack) {
 		if (this != &mutantStack)

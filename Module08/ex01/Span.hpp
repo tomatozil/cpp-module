@@ -6,7 +6,7 @@
 
 class Span {
 public:
-	void addNumber(int number) throw(std::runtime_error);
+	void addNumber(const int& number) throw(std::runtime_error);
 	template<typename Iter>
 	void addNumber(Iter begin, Iter end) throw(std::runtime_error) {
 		unsigned int size = end - begin;

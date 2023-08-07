@@ -1,7 +1,7 @@
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-NAME = a.out
+NAME = ex01
 SRC = main.cpp \
 	Span.cpp
 

@@ -1,7 +1,7 @@
 #include "Span.hpp"
 #include <cstdlib>
 
-void Span::addNumber(int number) throw(std::runtime_error) {
+void Span::addNumber(const int& number) throw(std::runtime_error) {
 	if (curSize == N)
 		throw std::runtime_error("Error: couldn't add more.");
 	vec.push_back(number);
@@ -36,7 +36,7 @@ int Span::longestSpan() throw(std::runtime_error) {
 	return (max);
 }
 
-Span::Span() {}
+Span::Span(unsigned int N) : N(N), curSize(0) {}
 
 Span::Span(const Span &origin) : N(origin.N), curSize(origin.curSize), vec(origin.vec) {
 	this->vec.insert(this->vec.begin(), origin.vec.begin(), origin.vec.end());
@@ -51,6 +51,6 @@ Span& Span::operator=(const Span &span) {
 	return (*this);
 }
 
-Span::Span(unsigned int N) : N(N), curSize(0) {}
-
 Span::~Span() {}
+
+Span::Span() {}

@@ -42,6 +42,7 @@ int main() {
 		try {
 			std::vector<int> vec;
 			vec.push_back(7);
+//			vec.push_back(4);
 			Span sp2 = Span(1);
 			sp2.addNumber(vec.begin(), vec.end());
 			std::cout << sp2.shortestSpan() << std::endl;

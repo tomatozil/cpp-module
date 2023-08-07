@@ -2,11 +2,9 @@
 
 int main() {
 	std::string arr[5] = {"h", "e", "l", "l", "o"};
+	int arr2[5] = {1, 2, 3, 4, 5};
 
-//	try {
-//		::iter(arr, -1, ::print);
-//	} catch (std::exception& e) {
-//		std::cout << e.what() << std::endl;
-//	}
 	::iter(arr, 5, ::print);
+	std::cout << "\n";
+	::iter(arr2, 5, ::print);
 }

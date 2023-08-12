@@ -31,8 +31,8 @@ void RPN::pushPossibleValue(std::string::iterator& strIter) {
 		return ;
 	if (!isdigit(*strIter))
 		throw std::runtime_error("Error");
-	if (isdigit(*(strIter + 1)))
-		throw std::runtime_error("Error");
+	if (isdigit(*(strIter + 1))) //두자리 수
+		throw std::runtime_error("Error: just");
 	stack.push(*strIter - 48);
 }
 

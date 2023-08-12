@@ -30,9 +30,9 @@ void RPN::pushPossibleValue(std::string::iterator& strIter) {
 	if (isOperator(*strIter))
 		return ;
 	if (!isdigit(*strIter))
-		throw std::runtime_error("Error");
+		throw std::runtime_error("Error: not digit");
 	if (isdigit(*(strIter + 1))) //두자리 수
-		throw std::runtime_error("Error: just");
+		throw std::runtime_error("Error: over ten");
 	stack.push(*strIter - 48);
 }
 

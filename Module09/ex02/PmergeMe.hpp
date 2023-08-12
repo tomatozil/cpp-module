@@ -18,31 +18,6 @@ public:
 				std::cout << *iter << " ";
 		}
 	}
-	template<typename T>
-	void merge(T& arr, int f, int m, int l) {
-		int leftLen = m - f + 1;
-		int rightLen = l - m;
-		T left;
-		for(int i = f; i < m + 1; i++)
-			left.push_back(arr[i]);
-		T right;
-		for(int i = m + 1; i < l + 1; i++)
-			right.push_back(arr[i]);
-		int leftIdx = 0, rightIdx = 0;
-		int k = f;
-		while (leftIdx < leftLen && rightIdx < rightLen) {
-			if (left[leftIdx] <= right[rightIdx])
-				arr[k] = left[leftIdx++];
-			else
-				arr[k] = right[rightIdx++];
-			k++;
-		}
-		while (leftIdx < leftLen)
-			arr[k++] = left[leftIdx++];
-		while (rightIdx < rightLen)
-			arr[k++] = right[rightIdx++];
-	}
-
     template<typename T>
     int binarySearch(T& arr, int first, int last, int value) {
         int middle;
@@ -55,7 +30,6 @@ public:
         }
         return last;
     }
-
 	template<typename T>
 	void insert(T& arr, int first, int last) {
         int size = last - first + 1;

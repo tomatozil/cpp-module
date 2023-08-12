@@ -17,7 +17,7 @@ int main(int argc, char *argv[]) {
 		std::cout << "Vec Before:  ";
 		pmergeMe->printValues(vec);
 		start_time = std::clock();
-		pmergeMe->sort(vec, 0, pmergeMe->getContainerSize(vec));
+		pmergeMe->sort(vec, 0, pmergeMe->getContainerSize(vec) - 1);
 		end_time = std::clock();
 		std::cout << "Vec After: ";
 		pmergeMe->printValues(vec);
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 		std::cout << "Deq Before:  ";
 		pmergeMe->printValues(deq);
 		start_time = std::clock();
-		pmergeMe->sort(deq, 0, pmergeMe->getContainerSize(deq));
+		pmergeMe->sort(deq, 0, pmergeMe->getContainerSize(deq) - 1);
 		end_time = std::clock();
 		std::cout << "Deq After:  ";
 		pmergeMe->printValues(deq);
@@ -37,7 +37,7 @@ int main(int argc, char *argv[]) {
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}
-}
+:q}
 
 //#include <iostream>
 //#include <vector>

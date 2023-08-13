@@ -7,7 +7,6 @@
 
 class PmergeMe {
 public:
-	void giveValues(char *argv[]);
 	template<typename T>
 	void printValues(T& arr) {
 		typename T::iterator iter;
@@ -44,36 +43,52 @@ public:
 			arr[loc] = targetValue;
 		}
 	}
+
 	template<typename T>
-	void sort(T& arr, int first, int last) {
+	void merge_sort(T& arr, int first, int last) {
 
 		if (last - first > 5) {
 			int middle = first + ((last - first) / 2);
-			sort(arr, first, middle);
-			sort(arr, middle + 1, last);
-			std::inplace_merge(&arr[first], &arr[middle + 1], &arr[last + 1]);
+			merge_sort(arr, first, middle);
+			merge_sort(arr, middle + 1, last);
+			std::inplace_merge(arr.begin() + first, arr.begin() + middle + 1, arr.begin() + last + 1);
 		} else {
 			insert(arr, first, last);
 		}
 	}
-	std::vector<int> getVec();
-	std::deque<int> getDeq();
+
+//	template<typename T, typename Iter>
+//	void merge_sort(T& arr, Iter first, Iter last) {
+//
+//		if (last - first > 5) {
+//			Iter middle = first + ((last - first) / 2);
+//			merge_sort(first, middle);
+//			merge_sort(middle, last);
+//			std::inplace_merge(first, middle, last);
+//		} else {
+//			insert(arr, first, last);
+//		}
+//	}
+
+
 	template<typename T>
 	size_t getContainerSize(T& arr) {
 		return arr.size();
 	}
-	static PmergeMe* getInstance();
+	std::vector<int> getVec();
+	std::deque<int> getDeq();
+
+	PmergeMe(char *argv[]);
+	~PmergeMe();
 
 private:
-	PmergeMe();
+	void giveValues(char *argv[]);
 	PmergeMe(const PmergeMe& origin);
 	PmergeMe& operator=(const PmergeMe& pmergeMe);
-	~PmergeMe();
 
 private:
 	std::vector<int> vec;
 	std::deque<int> deq;
-	static PmergeMe* instance;
 };
 
 #endif

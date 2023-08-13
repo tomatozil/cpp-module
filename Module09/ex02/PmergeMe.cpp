@@ -1,5 +1,19 @@
 #include "PmergeMe.hpp"
 
+std::vector<int> PmergeMe::getVec() {
+	return vec;
+}
+
+std::deque<int> PmergeMe::getDeq() {
+	return deq;
+}
+
+PmergeMe::PmergeMe(char* argv[]) : vec(), deq() {
+	giveValues(argv);
+}
+
+PmergeMe::~PmergeMe() {}
+
 void PmergeMe::giveValues(char *argv[]) {
 	int i = 0;
 	while (argv[++i]) {
@@ -13,27 +27,16 @@ void PmergeMe::giveValues(char *argv[]) {
 	}
 }
 
-std::vector<int> PmergeMe::getVec() {
-	return vec;
-}
+PmergeMe::PmergeMe(const PmergeMe &origin) : vec(origin.vec), deq(origin.deq) {}
 
-std::deque<int> PmergeMe::getDeq() {
-	return deq;
-}
-
-PmergeMe* PmergeMe::getInstance() {
-	if (instance == NULL)
-		instance = new PmergeMe();
-	return (instance);
-}
-
-PmergeMe::PmergeMe() {}
-
-PmergeMe::~PmergeMe() {
-	delete instance;
-}
-
-PmergeMe::PmergeMe(const PmergeMe &origin) {
-	(void)origin;
-	delete this;
+PmergeMe& PmergeMe::operator=(const PmergeMe& pmergeMe) {
+	if (this == &pmergeMe)
+		return (*this);
+	if (this->vec != pmergeMe.vec) {
+		this->vec = pmergeMe.vec;
+	}
+	if (this->deq != pmergeMe.deq) {
+		this->deq = pmergeMe.deq;
+	}
+	return (*this);
 }

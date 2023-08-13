@@ -76,23 +76,17 @@ void RPN::checkStack() {
 	std::cout << stack.top() << std::endl;
 }
 
-RPN *RPN::getInstance() {
-	if (instanceRPN == NULL)
-		instanceRPN = new RPN();
-	return (instanceRPN);
+RPN::RPN() : stack() {}
+
+RPN::~RPN() {}
+
+RPN::RPN(const RPN &origin) : stack(origin.stack){}
+
+RPN &RPN::operator=(const RPN &rpn) {
+	if (this == &rpn)
+		return (*this);
+	if (this->stack != rpn.stack) {
+		this->stack = rpn.stack;
+	}
+	return (*this);
 }
-
-RPN::RPN() {}
-
-RPN::~RPN() {
-	delete instanceRPN;
-}
-
-RPN::RPN(const RPN &origin) {
-	(void)origin;
-	delete this;
-}
-
-//RPN &RPN::operator=(const RPN &rpn) {
-//	delete this;
-//}

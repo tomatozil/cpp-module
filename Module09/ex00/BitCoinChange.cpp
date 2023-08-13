@@ -111,7 +111,7 @@ float BitCoinChange::closestValue(std::string &targetKey) {
 	return (iter->second);
 }
 
-BitCoinChange::BitCoinChange() {
+BitCoinChange::BitCoinChange() : dataBase() {
 	std::string filePath("data.csv");
 	if (getExtension(filePath) != ".csv")
 		throw std::runtime_error("Error: did not receive csv file.");

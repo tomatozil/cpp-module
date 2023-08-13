@@ -17,6 +17,7 @@ public:
 
 private:
 	void csvToMap(std::string& fileName);
+	int checkDate(std::string date);
 
 	BitCoinChange(const BitCoinChange& origin);
 	BitCoinChange& operator=(const BitCoinChange& bitCoinChange);

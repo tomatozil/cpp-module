@@ -1,6 +1,7 @@
 #include "BitCoinChange.hpp"
 #include <fstream>
 #include <sstream>
+#include <valarray>
 
 std::string BitCoinChange::getExtension(std::string& filePath) {
 	size_t dotPos = filePath.rfind('.');
@@ -22,19 +23,49 @@ void BitCoinChange::csvToMap(std::string &fileName) {
 		size_t commPos = line.find(','); //형식이 , 가 아니면
 		if (commPos == std::string::npos)
 			throw std::runtime_error("Error: could not interpret file.");
-		//date(Year-Month-Day)
 		key = line.substr(0, commPos);
-		//price
 		std::string price = line.substr(commPos + 1);
 		std::stringstream insstream(price);
-		size_t dotPos = price.find('.');
-		if (dotPos == std::string::npos)
-			insstream >> std::fixed >> std::setprecision(0) >> value;
-		else
-			insstream >> std::fixed >> std::setprecision(price.length() - dotPos - 1) >> value;
+		insstream >> value;
+//		size_t dotPos = price.find('.');
+//		if (dotPos == std::string::npos)
+//			insstream >> std::fixed >> std::setprecision(0) >> value;
+//		else
+//			insstream >> std::fixed >> std::setprecision(price.length() - dotPos - 1) >> value;
 		dataBase[key] = value;
 	}
 	infile.close();
+}
+
+int BitCoinChange::checkDate(std::string date) {
+	size_t dash1Pos = date.find('-');
+	if (dash1Pos == std::string::npos)
+		return -1;
+	std::string year = date.substr(0, dash1Pos);
+	size_t dash2Pos = date.find('-', dash1Pos + 1);
+	if (dash2Pos == std::string::npos)
+		return -1;
+	std::string month = date.substr(dash1Pos + 1, dash2Pos - dash1Pos - 1);
+	std::string day = date.substr(dash2Pos + 1);
+
+	std::istringstream yearStream(year);
+	int yearValue;
+	yearStream >> yearValue;
+	if (yearStream.fail() || yearValue < 1900 || yearValue > 3000)
+		return -1;
+
+	std::istringstream monthStream(month);
+	int monthValue;
+	monthStream >> monthValue;
+	if (monthStream.fail() || monthValue < 1 || monthValue > 12)
+		return -1;
+
+	std::istringstream dayStream(day);
+	int dayValue;
+	dayStream >> dayValue;
+	if (dayStream.fail() || dayValue < 1 || dayValue > 31)
+		return -1;
+	return 1;
 }
 
 std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
@@ -47,13 +78,16 @@ std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
 		}
 		else {
 			key = line.substr(0, barPos);
+			if (checkDate(key) == -1)
+				key = "Error: invalid date format.";
 			std::string price = line.substr(barPos + 1);
 			std::stringstream insstream(price);
-			size_t dotPos = price.find('.');
-			if (dotPos == std::string::npos)
-				insstream >> std::fixed >> std::setprecision(0) >> value;
-			else
-				insstream >> std::fixed >> std::setprecision(price.length() - dotPos - 1) >> value;
+			insstream >> value;
+//			size_t dotPos = price.find('.');
+//			if (dotPos == std::string::npos)
+//				insstream >> std::fixed >> std::setprecision(0) >> value;
+//			else
+//				insstream >> std::fixed >> std::setprecision(price.length() - dotPos - 1) >> value;
 			if (value < 0)
 				key = "Error: not a positive number.";
 			if (value > 1000)
@@ -65,12 +99,15 @@ std::pair<std::string, float> BitCoinChange::txtToPair(std::string& line) {
 float BitCoinChange::closestValue(std::string &targetKey) {
 	std::map<std::string, float>::const_iterator iter;
 	iter = dataBase.lower_bound(targetKey); // 끝에 " " 하나가 더 들어가서 항상 하나 뒤에 것이 나옴.
-	if (iter == dataBase.end())
-//		throw std::out_of_range("Error: out of range.");
-		return -0.1f;
+	if (iter == dataBase.end()) {
+		iter--;
+		if (iter->first == targetKey.substr(0, 10))
+			return (iter->second);
+		else
+			return -0.1f;
+	}
 	iter--;
 	if (iter->first.empty())
-//		throw std::out_of_range("Error: out of range.");
 		return -0.1f;
 	return (iter->second);
 }

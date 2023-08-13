@@ -1,7 +1,6 @@
 #include "BitCoinChange.hpp"
 #include <fstream>
 #include <sstream>
-#include <valarray>
 
 std::string BitCoinChange::getExtension(std::string& filePath) {
 	size_t dotPos = filePath.rfind('.');
